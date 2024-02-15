@@ -1,0 +1,56 @@
+
+{% extends "../header.html" %}
+
+
+{% block content %}
+
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="components-preview wide-md mx-auto">
+                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                        <div class="nk-block-head-content">
+                            <div class="nk-block-head-sub"><a class="back-to"
+                                    href="./"><em class="icon ni ni-arrow-left"></em><span>Dashboard</span></a>
+                            </div>
+                            <h2 class="nk-block-title fw-normal">Add Pages</h2>
+                        </div>
+                    </div>
+
+                    <div class="nk-block nk-block-lg">
+
+                        <div class="card card-bordered card-preview">
+                            <div class="card-inner">
+
+
+<form method="POST" action="{% url 'page_create' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col-md-6">
+        <label class="bebals" for="title">Name:</label>
+    <input type="text" class="tupni  form-control col-md-6"  name="name" placeholder="name"/>
+    </div>
+    
+</br>
+
+    <div class="col-md-6">
+        <label class="bebals" for="title">Page Type:</label>
+    <input type="text" class="tupni  form-control col-md-6" name="type" placeholder="type"/>
+    </div>
+
+</br>
+
+<button type="submit" class='btn btn-primary'>Submit</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,61 @@
+
+{% extends "../header.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="components-preview wide-md mx-auto">
+                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                        <div class="nk-block-head-content">
+                            <div class="nk-block-head-sub"><a class="back-to"
+                                    href="./"><em
+                                        class="icon ni ni-arrow-left"></em><span>Dashboard</span></a>
+                            </div>
+                            <h2 class="nk-block-title fw-normal">Posts</h2>
+                        </div>
+                    </div>
+
+                    <div class="nk-block nk-block-lg">
+
+                       
+<div class="card card-bordered card-preview">
+    <div class="card-inner">
+
+{% load static %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>heading</th>
+        <th>subheading</th>
+        <th>page</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+    <tbody>
+        {% for post in sections %}
+        <tr>
+            <td>{{ post.heading }}</td>
+            <td>{{ post.subheading }}</td>
+            <td>{{ post.page_id.name }}</td>
+            <td><a href="#" class="btn btn-danger">Edit</a></td>
+        </tr>
+    {% endfor %}
+     </tbody>
+       </table>
+    </div>
+ </div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "../header.html" %}
+
+
+{% block content %}
+
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="components-preview wide-md mx-auto">
+                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                        <div class="nk-block-head-content">
+                            <div class="nk-block-head-sub"><a class="back-to"
+                                    href="./"><em
+                                        class="icon ni ni-arrow-left"></em><span>Dashboard</span></a>
+                            </div>
+                            <h2 class="nk-block-title fw-normal">Edit Subcategory</h2>
+                        </div>
+                    </div>
+
+                    <div class="nk-block nk-block-lg">
+
+                        <div class="card card-bordered card-preview">
+                            <div class="card-inner">
+<form method="POST" action="{% url 'save-sub_category' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="col-md-6">
+        <label class="bebals" for="title">Name:</label>
+    <input type="text" class="tupni  form-control col-md-6" name="name" placeholder="Name"/>
+    </div>
+</br>
+
+<div class="col-md-6">
+    <label class="bebals" for="title">Slug:</label>
+<input type="text" class="tupni  form-control col-md-6" name="slug" placeholder="slug"/>
+</div>
+</br>
+<div class="col-md-6">
+    <label class="bebals" for="title">Featured Image:</label>
+<input type="file" class="tupni  form-control col-md-6" name="featured_image" placeholder="featured_image"/>
+</div>
+</br>
+
+<div class="col-md-6">
+    <label class="bebals" for="title">Category:</label>
+    <select name="category" class="tupni  form-control col-md-6">
+        {% for cat in categories%}
+            <option value="{{cat.id}}">{{cat.name}}</option>
+        {% endfor%}
+    </select>
+</div>
+</br>
+
+    <button type="submit" class='btn btn-primary'>Submit</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

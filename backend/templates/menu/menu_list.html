@@ -1,0 +1,58 @@
+
+{% extends "../header.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="components-preview wide-md mx-auto">
+                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                        <div class="nk-block-head-content">
+                            <div class="nk-block-head-sub"><a class="back-to"
+                                    href="./"><em
+                                        class="icon ni ni-arrow-left"></em><span>Dashboard</span></a>
+                            </div>
+                            <h2 class="nk-block-title fw-normal">Menu</h2>
+                        </div>
+                    </div>
+
+                    <div class="nk-block nk-block-lg">
+
+                       
+<div class="card card-bordered card-preview">
+    <div class="card-inner">
+    <div class="container mt-5">
+
+    {% for primary_menu in menu_data %}
+
+    <p style="padding:10px;padding-left:20px;border: 1px solid #eee;background:#eee;width:20%;border-radius:20px;">{{primary_menu.title}}</p>
+    
+    {% for submenu in primary_menu.submenus %}
+
+    <p style="margin-top:-10px;margin-left:30px;padding:5px;padding-left:20px;border: 1px solid grey;background:#eee;width:20%;border-radius:20px;">{{submenu.title}}</p>
+
+    {% for childmenu in submenu.childmenus %}
+
+    <p style="margin-left:80px;padding:2px;padding-left:20px;margin-top:-10px;border: 1px solid navy;background:#eee;width:20%;border-radius:20px;">{{childmenu.title}}</p>
+ 
+    {% endfor %}
+    
+    {% endfor %}
+
+    {% endfor %}
+
+    </div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

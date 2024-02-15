@@ -1,0 +1,87 @@
+
+
+{% extends "../header.html" %}
+
+
+{% block content %}
+
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="components-preview wide-md mx-auto">
+                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                        <div class="nk-block-head-content">
+                            <div class="nk-block-head-sub"><a class="back-to"
+                                    href="./"><em
+                                        class="icon ni ni-arrow-left"></em><span>Dashboard</span></a>
+                            </div>
+                            <h2 class="nk-block-title fw-normal">Add New Sections</h2>
+                        </div>
+                    </div>
+
+                    <div class="nk-block nk-block-lg">
+
+                        <div class="card card-bordered card-preview">
+                            <div class="card-inner">
+
+
+<form method="POST" action="{% url 'create_section' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col-md-6">
+        <label class="bebals" for="title">Heading:</label>
+            <input type="text"  class="tupni  form-control col-md-6"  name="heading" placeholder="heading"/>
+        </div>
+        <br>
+
+    <div class="col-md-6">
+                <label class="bebals" for="title">Paragraph:</label>
+    <input type="text"  class="tupni  form-control col-md-6"  name="paragraph" placeholder="paragraph"/>
+</div>
+<br>
+    <div class="col-md-6">
+        <label class="bebals" for="title">Order Of Section:</label>
+    <input type="number"  class="tupni  form-control col-md-6"  name="orders" placeholder="orders"/>
+</div>
+<br>
+    <div class="col-md-6">
+        <label class="bebals" for="title">Subheading:</label>
+    <input type="text"  class="tupni  form-control col-md-6"  name="subheading" placeholder="subheading"/>
+</div>
+<br>
+    <div class="col-md-6">
+        <label class="bebals" for="title">Background Image:</label>
+    <input type="file"  class="tupni  form-control col-md-6" name="background_image" placeholder="background_image"/>
+</div>
+<br>
+    <div class="col-md-6">
+        <label class="bebals" for="title">Image:</label>
+    <input type="file"  class="tupni  form-control col-md-6" name="image" placeholder="image"/>
+</div>
+<br>   
+
+<div class="col-md-6">
+    <label class="bebals" for="title">Page:</label>
+    <select name="page"  class="tupni  form-control col-md-6" >
+        {% for pg in page%}
+            <option value="{{pg.id}}">{{pg.name}}</option>
+        {% endfor%}
+    </select>
+
+</div>
+<br>   
+
+<button type="submit" class='btn btn-primary'>Submit</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

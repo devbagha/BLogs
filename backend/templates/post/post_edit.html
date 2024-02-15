@@ -1,0 +1,119 @@
+
+
+
+{% extends "../header.html" %}
+
+
+{% block content %}
+
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="components-preview wide-md mx-auto">
+                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                        <div class="nk-block-head-content">
+                            <div class="nk-block-head-sub"><a class="back-to"
+                                    href="./"><em
+                                        class="icon ni ni-arrow-left"></em><span>Dashboard</span></a>
+                            </div>
+                            <h2 class="nk-block-title fw-normal">Edit Posts</h2>
+
+                        </div>
+                    </div>
+
+                    <div class="nk-block nk-block-lg">
+
+                        <div class="card card-bordered card-preview">
+                            <div class="card-inner">
+
+
+
+
+
+<form method="POST" action="{% url 'edit-post' post.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col-md-6">
+        <label class="bebals" for="title">Title:</label>
+    <input type="text" class="tupni  form-control col-md-6" name="title" value="{{post.title}}" placeholder="title"/>
+</div>
+<br>
+
+<div class="col-md-6">
+    <label class="bebals" for="title">Slug:</label>
+    <input type="text" class="tupni  form-control col-md-6" name="slug" value="{{post.slug}}" placeholder="slug"/>
+</div>
+<br>
+    
+<div class="col-md-6">
+    <label class="bebals" for="title">Content:</label>
+    <input type="text" class="tupni  form-control col-md-6" name="content" value="{{post.content}}" placeholder="content"/>
+</div>
+<br>
+
+<div class="col-md-6">
+    <label class="bebals" for="title">Meta:</label>
+    <input type="text" class="tupni  form-control col-md-6" name="meta" value="{{post.meta}}" placeholder="meta"/>
+</div>
+<br>
+
+<div class="col-md-6">
+    <label class="bebals" for="title">Featured Image:</label>
+    <input type="file" class="tupni  form-control col-md-6"  name="featured_image" placeholder="featured_image" />
+</div>
+<br>
+
+
+
+<div class="flex-container">
+                            
+    <label class="required" for="id_sub_categories">Categories:</label>
+    
+        <div class="related-widget-wrapper" data-model-ref="sub category">
+            <select name="category[]" class="tupni  form-control col-md-6" style="width:20%" required id="id_sub_categories" multiple="">
+{% for ca in category%}
+<option value="{{ca.id}}" {% if ca in post.categories.all %} selected {% endif %}>{{ca.name}}</option>
+
+{% endfor%}
+</select>
+
+<br>
+
+    <div class="flex-container">
+                            
+        <label class="required" for="id_sub_categories">Sub categories:</label>
+        
+            <div class="related-widget-wrapper" data-model-ref="sub category">
+                <select name="sub_category[]" class="tupni  form-control col-md-6" style="width:20%" required="" id="id_sub_categories" multiple="">
+
+                {% for ca in sub_category%}
+                <option value="{{ca.id}}" {% if ca in post.sub_categories.all %} selected {% endif %}>{{ca.name}}</option>
+                {% endfor%}
+
+                </select>
+
+</div>
+
+<br/>
+
+    <div class="col-md-6">
+        <label class="bebals" for="title">Post Images:</label>
+        <input type="file"  class="tupni  form-control col-md-6" multiple placeholder="files" name="multiple"/>
+    </div>
+    <br/>
+    
+    <button type="submit" class='btn btn-primary'>Submit</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
+

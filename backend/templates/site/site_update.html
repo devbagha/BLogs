@@ -1,0 +1,55 @@
+
+{% extends "../header.html" %}
+
+
+{% block content %}
+
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="components-preview wide-md mx-auto">
+                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                        <div class="nk-block-head-content">
+                            <div class="nk-block-head-sub"><a class="back-to"
+                                    href="./"><em
+                                        class="icon ni ni-arrow-left"></em><span>Dashboard</span></a>
+                            </div>
+                            <h2 class="nk-block-title fw-normal">Edit Site</h2>
+                        </div>
+                    </div>
+
+                    <div class="nk-block nk-block-lg">
+
+                        <div class="card card-bordered card-preview">
+                            <div class="card-inner">
+
+<form method="POST" action="{% url 'edit_site' site.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col-md-6">
+        <label class="bebals" for="title">Heading:</label>
+    <input type="text"   class="tupni  form-control col-md-6"  name="name" value="{{site.name}}" placeholder="NAme"/>
+    </div>
+    </br>
+
+    <div class="col-md-6">
+        <label class="bebals" for="title">Is active:</label>
+    <input type="checkbox"   {% if site.is_active %}checked{% endif %}  value="{{site.is_active}}"  name="is_active" placeholder="is_active"/>
+    
+</div>
+</br>
+
+    <button type="submit" class='btn btn-primary'>Submit</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
